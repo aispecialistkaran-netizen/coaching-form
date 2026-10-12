@@ -25,7 +25,7 @@ export const SurveyNavigation: React.FC<SurveyNavigationProps> = ({
   onSkip,
 }) => {
   return (
-    <div className="w-full max-w-2xl mx-auto pt-8 border-t border-zinc-200 dark:border-zinc-800/80 flex items-center justify-between gap-4">
+    <div className="w-full max-w-4xl mx-auto pt-8 border-t border-zinc-200 dark:border-zinc-800/80 flex items-center justify-between gap-4">
       {/* Back Button */}
       {canGoBack ? (
         <button

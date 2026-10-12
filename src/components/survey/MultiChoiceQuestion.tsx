@@ -33,7 +33,7 @@ export const MultiChoiceQuestion: React.FC<MultiChoiceQuestionProps> = ({
       option.value === "No formal indicators"
     ) {
       if (!isCurrentlySelected) {
-        onChange([option.value]);
+        onChange([option.value], undefined);
         return;
       }
     }
@@ -52,7 +52,8 @@ export const MultiChoiceQuestion: React.FC<MultiChoiceQuestionProps> = ({
       newValues = [...newValues, option.value];
     }
 
-    onChange(newValues, newValues.includes("Other") ? otherInput : undefined);
+    const hasTextInputSelected = options.some((opt) => opt.hasTextInput && newValues.includes(opt.value));
+    onChange(newValues, hasTextInputSelected ? otherInput : undefined);
   };
 
   const handleOtherInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +65,7 @@ export const MultiChoiceQuestion: React.FC<MultiChoiceQuestionProps> = ({
   const isMaxReached = Boolean(maxSelections && values.length >= maxSelections);
 
   return (
-    <div className="space-y-3 w-full max-w-2xl mx-auto">
+    <div className="space-y-3 w-full max-w-4xl mx-auto">
       {maxSelections && (
         <div className="flex items-center justify-between px-1 text-xs">
           <span className="text-zinc-600 dark:text-zinc-400 font-medium">

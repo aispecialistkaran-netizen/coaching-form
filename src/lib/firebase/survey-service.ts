@@ -6,6 +6,7 @@ export interface SurveySubmission {
   id?: string;
   respondentName?: string;
   respondentEmail?: string;
+  organizationName?: string;
   roleKey: string;
   role: string;
   exposure: string;
@@ -40,6 +41,7 @@ export async function submitSurveyResponse(data: {
 
   const respondentName = (answers["Q00_NAME"] as string)?.trim() || "";
   const respondentEmail = (answers["Q00_EMAIL"] as string)?.trim() || "";
+  const organizationName = (answers["Q00_ORG"] as string)?.trim() || "";
   const industry = (answers["Q01"] as string) || "";
   const orgSize = (answers["Q02"] as string) || "";
   const coachExposureRaw = (answers["Q06"] as string) || "";
@@ -47,6 +49,7 @@ export async function submitSurveyResponse(data: {
   const docRef = await addDoc(collection(db, COLLECTION_NAME), {
     respondentName,
     respondentEmail,
+    organizationName,
     roleKey,
     role: roleLabel,
     exposure,
@@ -80,6 +83,7 @@ export async function fetchSurveyResponses(): Promise<SurveySubmission[]> {
       id: doc.id,
       respondentName: data.respondentName || (data.answers?.["Q00_NAME"] as string) || "",
       respondentEmail: data.respondentEmail || (data.answers?.["Q00_EMAIL"] as string) || "",
+      organizationName: data.organizationName || (data.answers?.["Q00_ORG"] as string) || "",
       roleKey: data.roleKey || "",
       role: data.role || "",
       exposure: data.exposure || "",
@@ -101,6 +105,7 @@ export function exportResponsesToCSV(submissions: SurveySubmission[]): string {
     "Submitted At",
     "Respondent Name",
     "Work Email",
+    "Organization Name",
     "Role Key",
     "Role Description",
     "Exposure Route",
@@ -138,6 +143,7 @@ export function exportResponsesToCSV(submissions: SurveySubmission[]): string {
       escapeCSV(sub.submittedAt),
       escapeCSV(sub.respondentName),
       escapeCSV(sub.respondentEmail),
+      escapeCSV(sub.organizationName),
       escapeCSV(sub.roleKey),
       escapeCSV(sub.role),
       escapeCSV(sub.exposure),

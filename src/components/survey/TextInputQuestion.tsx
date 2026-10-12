@@ -35,7 +35,7 @@ export const TextInputQuestion: React.FC<TextInputQuestionProps> = ({
   };
 
   return (
-    <div className="space-y-3 w-full max-w-2xl mx-auto">
+    <div className="space-y-3 w-full max-w-4xl mx-auto">
       <div className="relative flex items-center">
         <div className="absolute left-4.5 pointer-events-none text-zinc-400">
           {type === "email" ? <Mail className="w-5 h-5" /> : <User className="w-5 h-5" />}

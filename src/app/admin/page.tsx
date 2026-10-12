@@ -615,8 +615,11 @@ export default function AdminDashboard() {
                             className="w-4 h-4 rounded text-orange-600 focus:ring-orange-500 border-zinc-300 cursor-pointer accent-orange-600"
                           />
                         </td>
-                        <td className="px-4 py-3.5 font-medium text-zinc-900 max-w-[160px] truncate" title={res.respondentName}>
-                          {res.respondentName || "—"}
+                        <td className="px-4 py-3.5 max-w-[170px] truncate">
+                          <div className="font-medium text-zinc-900 truncate" title={res.respondentName}>{res.respondentName || "—"}</div>
+                          {res.organizationName && (
+                            <div className="text-[11px] text-zinc-500 truncate" title={res.organizationName}>{res.organizationName}</div>
+                          )}
                         </td>
                         <td className="px-4 py-3.5 font-mono text-zinc-600 max-w-[180px] truncate" title={res.respondentEmail}>
                           {res.respondentEmail || "—"}

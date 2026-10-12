@@ -77,6 +77,18 @@ export const QUESTIONS: QuestionDefinition[] = [
     route: "all",
     placeholder: "e.g. rahul.sharma@company.com",
   },
+  {
+    id: "Q00_ORG",
+    code: "organization_name",
+    tag: "Organization Name",
+    section: "participant_info",
+    sectionTitle: "1. Participant Profile",
+    title: "What is your organization's legal or primary brand name?",
+    subtitle: "Used for intra-firm leadership benchmarking and industry representation.",
+    type: "text",
+    route: "all",
+    placeholder: "e.g. Tata Consultancy Services, HDFC Bank, Infosys",
+  },
 
   // ==========================================
   // 2. ORGANIZATION PROFILE (Q01 - Q04)

@@ -23,7 +23,7 @@ export const LikertScaleQuestion: React.FC<LikertScaleQuestionProps> = ({
   const specialOption = options.find((o) => o.value > 10);
 
   return (
-    <div className="space-y-4 w-full max-w-2xl mx-auto">
+    <div className="space-y-4 w-full max-w-4xl mx-auto">
       <div className="grid grid-cols-1 gap-2.5">
         {standardRatings.map((opt) => {
           const isSelected = value === opt.value;
@@ -80,7 +80,12 @@ export const LikertScaleQuestion: React.FC<LikertScaleQuestionProps> = ({
                 : "bg-zinc-100/60 dark:bg-zinc-950/40 hover:bg-zinc-200/60 dark:hover:bg-zinc-900 border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-300"
             }`}
           >
-            <span>{specialOption.label}</span>
+            <div className="flex items-center gap-2.5 min-w-0">
+              <span className="w-5 h-5 rounded text-[11px] font-mono font-bold flex items-center justify-center shrink-0 bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700">
+                0
+              </span>
+              <span>{specialOption.label}</span>
+            </div>
             <div
               className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 border ${
                 value === specialOption.value

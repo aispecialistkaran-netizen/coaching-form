@@ -56,34 +56,35 @@ The questionnaire dynamically tailors its questions based on **two key decision 
 | :---: | :--- | :--- | :--- | :--- | :---: | :--- |
 | **1** | 1. Participant Profile | `Q00_NAME` | Full Name | Text | **Required** | What is your full name? |
 | **2** | 1. Participant Profile | `Q00_EMAIL` | Work Email | Email | **Required** | What is your official work email address? |
-| **3** | 2. Organization Profile | `Q01` | Industry | Single Select | **Required** | Which industry best describes your organization’s primary business? |
-| **4** | 2. Organization Profile | `Q02` | Org size | Single Select | **Required** | Approximately how many employees does your organization have in India? |
-| **5** | 2. Organization Profile | `Q03` | Ownership | Single Select | **Required** | Which ownership structure best describes your organization? |
-| **6** | 2. Organization Profile | `Q04` | Region HQ | Single Select | **Required** | Where is your organization’s India head office or primary operating HQ located? |
-| **7** | 3. Designation & Perspective | `Q05` | Designation & Role | Single Select | **Required** | Which role best describes you? |
-| **8** | 3. Designation & Perspective | `Q06` | Coaching exposure | Single Select | **Required** | Which statement best describes your organization’s current use of coaching? |
-| **9** | 4. Organizational Coaching Context | `Q10` | Coaching stage | Single Select | **Required** | Which statement best describes your organization’s current coaching stage? |
-| **10** | 4. Organizational Coaching Context | `Q11` | Barriers | Multi Select | **Required** | What are the main barriers to wider adoption or deeper embedding of coaching in your organization? |
-| **11** | 4. Organizational Coaching Context | `Q12` | Integration | Likert (1–5) | **Required** | To what extent is coaching integrated into leadership, talent, or people processes in your organization? |
-| **12** | 4. Organizational Coaching Context | `Q13` | Measurement | Likert (1–5) | **Required** | To what extent does your organization measure coaching using defined indicators, review mechanisms, or outcome data? |
-| **13** | 4. Organizational Coaching Context | `Q_SPONSOR` | Business Sponsor | Single Select | **Required** | Who, if anyone, actively participates as a business sponsor in reviewing coaching impact and progress alongside HR / L&D? |
-| **14** | 5. Coaching Modalities & Reach | `Q07U` | Modalities | Multi Select | *Optional* | Which coaching modalities are currently used in your organization? |
-| **15** | 5. Coaching Modalities & Reach | `Q08U` | Coverage | Multi Select | *Optional* | Which employee groups are currently covered by coaching? |
-| **16** | 5. Coaching Modalities & Reach | `Q09U` | Coaching duration | Single Select | *Optional* | For approximately how long has coaching been used in your organization? |
-| **17** | 6. Qualitative Insights & Reflections | `Q22` | Open: Key outcome | Open Text | **Required** | In your view, what is the single most significant outcome that coaching has created or could create in your organization? |
-| **18** | 6. Qualitative Insights & Reflections | `Q23` | Open: Ripple example | Open Text | **Required** | Please describe one example where coaching impact travelled beyond the individual leader or where it stopped before travelling further. |
-| **19** | 6. Qualitative Insights & Reflections | `Q24` | Open: Conditions & risks | Open Text | **Required** | What conditions, enablers, or risks most influence whether coaching impact becomes sustainable in your organization? |
-| **20** | 7. The Coaching Ripple Effect & Impact | `Q14U` | Leadership impact | Likert (1–5) | **Required** | Based on what you have observed, to what extent has coaching contributed to leadership-maturity outcomes such as self-awareness, emotional regulation, judgment, accountability, and clarity? |
-| **21** | 7. The Coaching Ripple Effect & Impact | `Q15U` | Team impact | Likert (1–5) | **Required** | To what extent has coaching contributed to team outcomes such as trust, psychological safety, collaboration, inclusion, learning, or resilience? |
-| **22** | 7. The Coaching Ripple Effect & Impact | `Q16U` | Organization impact | Likert (1–5) | **Required** | To what extent has coaching contributed to organizational outcomes such as succession readiness, leadership pipeline strength, engagement, retention, performance culture, or organizational health? |
-| **23** | 7. The Coaching Ripple Effect & Impact | `Q17U` | Business impact | Likert (1–5) | **Required** | To what extent has coaching contributed to business outcomes such as strategic execution, agility, innovation, decision quality, or productivity? |
-| **24** | 7. The Coaching Ripple Effect & Impact | `Q18U` | Stakeholder impact | Likert (1–5) | **Required** | To what extent has coaching contributed to stakeholder outcomes such as customer experience, supplier/partner relationships, cross-boundary collaboration, negotiation quality, or stakeholder trust? |
-| **25** | 7. The Coaching Ripple Effect & Impact | `Q19U` | Ecosystem impact | Likert (1–5) | **Required** | To what extent has coaching contributed to wider ecosystem or community outcomes such as responsible leadership, mentoring, volunteering, social responsibility, industry capability, or community participation? |
-| **26** | 8. Value & ROI of Coaching | `Q20U` | Value / Investment | Likert (1–5) | **Required** | Overall, how would you describe the value created by coaching relative to the time, effort, and money invested? |
-| **27** | 8. Value & ROI of Coaching | `Q21U` | Metrics | Multi Select | **Required** | Which indicators does your organization use, or most trust, when judging coaching value? Please select up to five. |
-| **28** | 9. Research Panel & Case Study (Optional) | `C1` | Follow-up interview | Single Select | *Optional* | May the NHRD Research Team contact you for a 45–60 minute follow-up executive research interview? |
-| **29** | 9. Research Panel & Case Study (Optional) | `C2` | Case study shortlist | Single Select | *Optional* | May the Research Team contact you if your organization's coaching practice is shortlisted for the NHRD White Paper Case Compendium? |
-| **30** | 9. Research Panel & Case Study (Optional) | `C3` | Attribution approval | Single Select | *Optional* | If case-study inclusion is considered later, would you require separate organizational approval before any attribution? |
+| **3** | 1. Participant Profile | `Q00_ORG` | Organization Name | Text | **Required** | What is your organization's legal or primary brand name? |
+| **4** | 2. Organization Profile | `Q01` | Industry | Single Select | **Required** | Which industry best describes your organization’s primary business? |
+| **5** | 2. Organization Profile | `Q02` | Org size | Single Select | **Required** | Approximately how many employees does your organization have in India? |
+| **6** | 2. Organization Profile | `Q03` | Ownership | Single Select | **Required** | Which ownership structure best describes your organization? |
+| **7** | 2. Organization Profile | `Q04` | Region HQ | Single Select | **Required** | Where is your organization’s India head office or primary operating HQ located? |
+| **8** | 3. Designation & Perspective | `Q05` | Designation & Role | Single Select | **Required** | Which role best describes you? |
+| **9** | 3. Designation & Perspective | `Q06` | Coaching exposure | Single Select | **Required** | Which statement best describes your organization’s current use of coaching? |
+| **10** | 4. Organizational Coaching Context | `Q10` | Coaching stage | Single Select | **Required** | Which statement best describes your organization’s current coaching stage? |
+| **11** | 4. Organizational Coaching Context | `Q11` | Barriers | Multi Select | **Required** | What are the main barriers to wider adoption or deeper embedding of coaching in your organization? |
+| **12** | 4. Organizational Coaching Context | `Q12` | Integration | Likert (1–5) | **Required** | To what extent is coaching integrated into leadership, talent, or people processes in your organization? |
+| **13** | 4. Organizational Coaching Context | `Q13` | Measurement | Likert (1–5) | **Required** | To what extent does your organization measure coaching using defined indicators, review mechanisms, or outcome data? |
+| **14** | 4. Organizational Coaching Context | `Q_SPONSOR` | Business Sponsor | Single Select | **Required** | Who, if anyone, actively participates as a business sponsor in reviewing coaching impact and progress alongside HR / L&D? |
+| **15** | 5. Coaching Modalities & Reach | `Q07U` | Modalities | Multi Select | *Optional* | Which coaching modalities are currently used in your organization? |
+| **16** | 5. Coaching Modalities & Reach | `Q08U` | Coverage | Multi Select | *Optional* | Which employee groups are currently covered by coaching? |
+| **17** | 5. Coaching Modalities & Reach | `Q09U` | Coaching duration | Single Select | *Optional* | For approximately how long has coaching been used in your organization? |
+| **18** | 6. Qualitative Insights & Reflections | `Q22` | Open: Key outcome | Open Text | **Required** | In your view, what is the single most significant outcome that coaching has created or could create in your organization? |
+| **19** | 6. Qualitative Insights & Reflections | `Q23` | Open: Ripple example | Open Text | **Required** | Please describe one example where coaching impact travelled beyond the individual leader or where it stopped before travelling further. |
+| **20** | 6. Qualitative Insights & Reflections | `Q24` | Open: Conditions & risks | Open Text | **Required** | What conditions, enablers, or risks most influence whether coaching impact becomes sustainable in your organization? |
+| **21** | 7. The Coaching Ripple Effect & Impact | `Q14U` | Leadership impact | Likert (1–5) | **Required** | Based on what you have observed, to what extent has coaching contributed to leadership-maturity outcomes such as self-awareness, emotional regulation, judgment, accountability, and clarity? |
+| **22** | 7. The Coaching Ripple Effect & Impact | `Q15U` | Team impact | Likert (1–5) | **Required** | To what extent has coaching contributed to team outcomes such as trust, psychological safety, collaboration, inclusion, learning, or resilience? |
+| **23** | 7. The Coaching Ripple Effect & Impact | `Q16U` | Organization impact | Likert (1–5) | **Required** | To what extent has coaching contributed to organizational outcomes such as succession readiness, leadership pipeline strength, engagement, retention, performance culture, or organizational health? |
+| **24** | 7. The Coaching Ripple Effect & Impact | `Q17U` | Business impact | Likert (1–5) | **Required** | To what extent has coaching contributed to business outcomes such as strategic execution, agility, innovation, decision quality, or productivity? |
+| **25** | 7. The Coaching Ripple Effect & Impact | `Q18U` | Stakeholder impact | Likert (1–5) | **Required** | To what extent has coaching contributed to stakeholder outcomes such as customer experience, supplier/partner relationships, cross-boundary collaboration, negotiation quality, or stakeholder trust? |
+| **26** | 7. The Coaching Ripple Effect & Impact | `Q19U` | Ecosystem impact | Likert (1–5) | **Required** | To what extent has coaching contributed to wider ecosystem or community outcomes such as responsible leadership, mentoring, volunteering, social responsibility, industry capability, or community participation? |
+| **27** | 8. Value & ROI of Coaching | `Q20U` | Value / Investment | Likert (1–5) | **Required** | Overall, how would you describe the value created by coaching relative to the time, effort, and money invested? |
+| **28** | 8. Value & ROI of Coaching | `Q21U` | Metrics | Multi Select | **Required** | Which indicators does your organization use, or most trust, when judging coaching value? Please select up to five. |
+| **29** | 9. Research Panel & Case Study (Optional) | `C1` | Follow-up interview | Single Select | *Optional* | May the NHRD Research Team contact you for a 45–60 minute follow-up executive research interview? |
+| **30** | 9. Research Panel & Case Study (Optional) | `C2` | Case study shortlist | Single Select | *Optional* | May the Research Team contact you if your organization's coaching practice is shortlisted for the NHRD White Paper Case Compendium? |
+| **31** | 9. Research Panel & Case Study (Optional) | `C3` | Attribution approval | Single Select | *Optional* | If case-study inclusion is considered later, would you require separate organizational approval before any attribution? |
 
 ---
 
@@ -94,21 +95,22 @@ The questionnaire dynamically tailors its questions based on **two key decision 
 | :---: | :--- | :--- | :--- | :--- | :---: | :--- |
 | **1** | 1. Participant Profile | `Q00_NAME` | Full Name | Text | **Required** | What is your full name? |
 | **2** | 1. Participant Profile | `Q00_EMAIL` | Work Email | Email | **Required** | What is your official work email address? |
-| **3** | 2. Organization Profile | `Q01` | Industry | Single Select | **Required** | Which industry best describes your organization’s primary business? |
-| **4** | 2. Organization Profile | `Q02` | Org size | Single Select | **Required** | Approximately how many employees does your organization have in India? |
-| **5** | 2. Organization Profile | `Q03` | Ownership | Single Select | **Required** | Which ownership structure best describes your organization? |
-| **6** | 2. Organization Profile | `Q04` | Region HQ | Single Select | **Required** | Where is your organization’s India head office or primary operating HQ located? |
-| **7** | 3. Designation & Perspective | `Q05` | Designation & Role | Single Select | **Required** | Which role best describes you? |
-| **8** | 3. Designation & Perspective | `Q06` | Coaching exposure | Single Select | **Required** | Which statement best describes your organization’s current use of coaching? |
-| **9** | 4. Alternative Interventions & Potential | `Q07N` | Alternative interventions | Multi Select | **Required** | Which approaches does your organization currently use instead of, or in place of, formal coaching? Please select all that apply. |
-| **10** | 4. Alternative Interventions & Potential | `Q08N` | Potential coverage | Multi Select | **Required** | If coaching were to be used in your organization, which groups would be the most likely starting point? Please select up to three. |
-| **11** | 4. Alternative Interventions & Potential | `Q09N` | Adoption horizon | Single Select | **Required** | Which statement best describes your organization’s likely coaching horizon? |
-| **12** | 5. Evaluation & Conditions for Adoption | `Q14N` | Evidence needed | Multi Select | **Required** | What evidence would matter most if your organization were evaluating coaching? Please select up to three. |
-| **13** | 5. Evaluation & Conditions for Adoption | `Q15N` | Adoption conditions | Multi Select | **Required** | What conditions would most increase the likelihood of coaching adoption in your organization? Please select up to three. |
-| **14** | 5. Evaluation & Conditions for Adoption | `Q16N` | Adoption likelihood | Likert (1–5) | **Required** | How likely is your organization to consider a more formal coaching approach over the next 24 months? |
-| **15** | 5. Evaluation & Conditions for Adoption | `Q17N` | Perceived value | Single Select | **Required** | If your organization were to adopt coaching, where do you believe it would be most likely to add value first? |
-| **16** | 6. Strategic Outlook & Reflections (Optional) | `Q22N` | Strategic Outlook | Open Text | *Optional* | In your view, what is the single biggest question, reservation, or potential opportunity your organization sees regarding executive coaching? |
-| **17** | 7. Executive Roundtable Invitation (Optional) | `C1N` | Executive Roundtable | Single Select | *Optional* | Would you like an invitation to an exclusive, closed-door NHRD Roundtable on 'Building the Business Case & Measuring ROI for Leadership Development'? |
+| **3** | 1. Participant Profile | `Q00_ORG` | Organization Name | Text | **Required** | What is your organization's legal or primary brand name? |
+| **4** | 2. Organization Profile | `Q01` | Industry | Single Select | **Required** | Which industry best describes your organization’s primary business? |
+| **5** | 2. Organization Profile | `Q02` | Org size | Single Select | **Required** | Approximately how many employees does your organization have in India? |
+| **6** | 2. Organization Profile | `Q03` | Ownership | Single Select | **Required** | Which ownership structure best describes your organization? |
+| **7** | 2. Organization Profile | `Q04` | Region HQ | Single Select | **Required** | Where is your organization’s India head office or primary operating HQ located? |
+| **8** | 3. Designation & Perspective | `Q05` | Designation & Role | Single Select | **Required** | Which role best describes you? |
+| **9** | 3. Designation & Perspective | `Q06` | Coaching exposure | Single Select | **Required** | Which statement best describes your organization’s current use of coaching? |
+| **10** | 4. Alternative Interventions & Potential | `Q07N` | Alternative interventions | Multi Select | **Required** | Which approaches does your organization currently use instead of, or in place of, formal coaching? Please select all that apply. |
+| **11** | 4. Alternative Interventions & Potential | `Q08N` | Potential coverage | Multi Select | **Required** | If coaching were to be used in your organization, which groups would be the most likely starting point? Please select up to three. |
+| **12** | 4. Alternative Interventions & Potential | `Q09N` | Adoption horizon | Single Select | **Required** | Which statement best describes your organization’s likely coaching horizon? |
+| **13** | 5. Evaluation & Conditions for Adoption | `Q14N` | Evidence needed | Multi Select | **Required** | What evidence would matter most if your organization were evaluating coaching? Please select up to three. |
+| **14** | 5. Evaluation & Conditions for Adoption | `Q15N` | Adoption conditions | Multi Select | **Required** | What conditions would most increase the likelihood of coaching adoption in your organization? Please select up to three. |
+| **15** | 5. Evaluation & Conditions for Adoption | `Q16N` | Adoption likelihood | Likert (1–5) | **Required** | How likely is your organization to consider a more formal coaching approach over the next 24 months? |
+| **16** | 5. Evaluation & Conditions for Adoption | `Q17N` | Perceived value | Single Select | **Required** | If your organization were to adopt coaching, where do you believe it would be most likely to add value first? |
+| **17** | 6. Strategic Outlook & Reflections (Optional) | `Q22N` | Strategic Outlook | Open Text | *Optional* | In your view, what is the single biggest question, reservation, or potential opportunity your organization sees regarding executive coaching? |
+| **18** | 7. Executive Roundtable Invitation (Optional) | `C1N` | Executive Roundtable | Single Select | *Optional* | Would you like an invitation to an exclusive, closed-door NHRD Roundtable on 'Building the Business Case & Measuring ROI for Leadership Development'? |
 
 ---
 
@@ -123,6 +125,7 @@ Legend:
 | :---: | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **1** | Participant Profile | `Q00_NAME` | Full Name | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
 | **1** | Participant Profile | `Q00_EMAIL` | Work Email | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
+| **1** | Participant Profile | `Q00_ORG` | Organization Name | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
 | **2** | Organization Profile | `Q01` | Industry | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
 | **2** | Organization Profile | `Q02` | Org size | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
 | **2** | Organization Profile | `Q03` | Ownership | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |

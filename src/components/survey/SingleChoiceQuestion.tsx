@@ -37,7 +37,7 @@ export const SingleChoiceQuestion: React.FC<SingleChoiceQuestionProps> = ({
   };
 
   return (
-    <div className="space-y-3 w-full max-w-2xl mx-auto">
+    <div className="space-y-3 w-full max-w-4xl mx-auto">
       <div className="grid grid-cols-1 gap-2.5">
         {options.map((opt, idx) => {
           const isSelected = value === opt.value;

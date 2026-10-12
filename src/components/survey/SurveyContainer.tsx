@@ -38,10 +38,10 @@ export const SurveyContainer: React.FC = () => {
   const [startTime, setStartTime] = useState<number>(Date.now());
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // Autosave / restore progress in session
+  // Autosave / restore progress across sessions
   useEffect(() => {
     try {
-      const saved = sessionStorage.getItem("survey_answers_draft");
+      const saved = localStorage.getItem("survey_answers_draft") || sessionStorage.getItem("survey_answers_draft");
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed && typeof parsed === "object") {
@@ -49,7 +49,7 @@ export const SurveyContainer: React.FC = () => {
         }
       }
     } catch {
-      // Ignore session errors
+      // Ignore storage errors
     }
   }, []);
 
@@ -60,14 +60,31 @@ export const SurveyContainer: React.FC = () => {
   ) => {
     setErrorMessage(null);
     setAnswers((prev) => {
-      const updated = { ...prev, [id]: value };
+      let updated: SurveyAnswers = { ...prev, [id]: value };
       if (otherText !== undefined) {
         updated[`${id}_OTHER`] = otherText;
       }
+
+      // If modifying critical routing forks (Q05 Role or Q06 Coaching Exposure),
+      // purge orphan answers that no longer belong to the newly eligible pathway.
+      if (id === "Q05" || id === "Q06") {
+        const newEligible = getEligibleQuestions(updated);
+        const validIds = new Set(newEligible.map((q) => q.id));
+        const cleaned: SurveyAnswers = {};
+        for (const [key, val] of Object.entries(updated)) {
+          const baseKey = key.endsWith("_OTHER") ? key.replace("_OTHER", "") : key;
+          if (validIds.has(baseKey)) {
+            cleaned[key] = val;
+          }
+        }
+        updated = cleaned;
+      }
+
       try {
+        localStorage.setItem("survey_answers_draft", JSON.stringify(updated));
         sessionStorage.setItem("survey_answers_draft", JSON.stringify(updated));
       } catch {
-        // Ignore session errors
+        // Ignore storage errors
       }
       return updated;
     });
@@ -181,6 +198,7 @@ export const SurveyContainer: React.FC = () => {
       setSubmittedReceiptId(receiptId);
       setStatus("success");
       try {
+        localStorage.removeItem("survey_answers_draft");
         sessionStorage.removeItem("survey_answers_draft");
       } catch {
         // Ignore
@@ -199,6 +217,7 @@ export const SurveyContainer: React.FC = () => {
     setStatus("welcome");
     setSubmittedReceiptId("");
     try {
+      localStorage.removeItem("survey_answers_draft");
       sessionStorage.removeItem("survey_answers_draft");
     } catch {
       // Ignore
@@ -238,10 +257,43 @@ export const SurveyContainer: React.FC = () => {
             const chosen = currentQuestion.options[keyIndex];
             handleUpdateAnswer(currentQuestion.id, chosen.value);
           }
+        } else if (currentQuestion.type === "multi_select" && currentQuestion.options) {
+          const keyLower = e.key.toLowerCase();
+          const keyIndex = SHORTCUT_KEYS.indexOf(keyLower);
+          if (keyIndex >= 0 && keyIndex < currentQuestion.options.length) {
+            e.preventDefault();
+            const chosen = currentQuestion.options[keyIndex];
+            const currentVals = (answers[currentQuestion.id] as string[]) || [];
+            let nextVals: string[];
+            if (
+              chosen.value === "Not applicable" ||
+              chosen.value === "None in particular" ||
+              chosen.value === "No formal indicators"
+            ) {
+              nextVals = currentVals.includes(chosen.value) ? [] : [chosen.value];
+            } else {
+              const withoutExclusive = currentVals.filter(
+                (v) => v !== "Not applicable" && v !== "None in particular" && v !== "No formal indicators"
+              );
+              if (withoutExclusive.includes(chosen.value)) {
+                nextVals = withoutExclusive.filter((v) => v !== chosen.value);
+              } else {
+                if (currentQuestion.maxSelections && withoutExclusive.length >= currentQuestion.maxSelections) {
+                  return;
+                }
+                nextVals = [...withoutExclusive, chosen.value];
+              }
+            }
+            handleUpdateAnswer(currentQuestion.id, nextVals);
+          }
         } else if (currentQuestion.type === "likert_5") {
           if (["1", "2", "3", "4", "5"].includes(e.key)) {
             e.preventDefault();
             handleUpdateAnswer(currentQuestion.id, Number(e.key));
+          } else if (["0", "9", "n", "N"].includes(e.key)) {
+            // Shortcut for "99: Not sure / Too early to assess"
+            e.preventDefault();
+            handleUpdateAnswer(currentQuestion.id, 99);
           }
         }
       }
@@ -252,7 +304,17 @@ export const SurveyContainer: React.FC = () => {
   }, [status, currentQuestion, currentStepIndex, eligibleQuestions.length, answers]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-orange-500/20 selection:text-orange-900 dark:selection:bg-orange-500/30 dark:selection:text-orange-200 transition-colors duration-200">
+    <div className="relative min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-orange-500/20 selection:text-orange-900 dark:selection:bg-orange-500/30 dark:selection:text-orange-200 transition-colors duration-200 overflow-x-hidden">
+      {/* Ambient Background: Subtle Grid Pattern + Ultra-Soft Warm Ambient Radiance */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Subtle Architectural Grid Pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-50 dark:opacity-25" />
+
+        {/* Soft, Gentle Ambient Radial Gradient (Very Subtle & Elegant) */}
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-orange-400/[0.08] via-amber-300/[0.04] to-transparent dark:from-orange-500/[0.07] dark:via-amber-400/[0.03] dark:to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-amber-400/[0.04] dark:bg-amber-500/[0.03] rounded-full blur-3xl" />
+      </div>
+
       {/* Top Brand & Progress Header (active during survey) */}
       {status === "survey" && currentQuestion && (
         <SurveyHeader
@@ -265,13 +327,13 @@ export const SurveyContainer: React.FC = () => {
       )}
 
       {/* Main View Router */}
-      <main className="flex-1 flex flex-col justify-center px-4 py-8 sm:py-12">
+      <main className="relative z-10 flex-1 flex flex-col justify-start px-4 py-2 sm:py-4 overflow-y-auto">
         {status === "welcome" && <SurveyWelcome onStart={handleStart} />}
 
         {status === "survey" && currentQuestion && (
-          <div className="w-full max-w-3xl mx-auto flex flex-col items-center animate-fadeIn space-y-6">
+          <div className="w-full max-w-4xl mx-auto flex flex-col items-center animate-fadeIn space-y-6 my-auto">
             {/* Question Title & Badges */}
-            <div className="w-full max-w-2xl text-left space-y-3">
+            <div className="w-full max-w-4xl text-left space-y-3">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 shadow-xs">
                   {currentQuestion.id}
@@ -359,7 +421,7 @@ export const SurveyContainer: React.FC = () => {
 
             {/* Error Message */}
             {errorMessage && (
-              <div className="w-full max-w-2xl p-3 rounded-xl bg-red-50 dark:bg-red-950/60 border border-red-200 dark:border-red-800 text-xs text-red-700 dark:text-red-300 flex items-center gap-2">
+              <div className="w-full max-w-4xl p-3 rounded-xl bg-red-50 dark:bg-red-950/60 border border-red-200 dark:border-red-800 text-xs text-red-700 dark:text-red-300 flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{errorMessage}</span>
               </div>

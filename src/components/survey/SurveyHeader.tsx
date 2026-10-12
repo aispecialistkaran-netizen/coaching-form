@@ -17,22 +17,29 @@ export const SurveyHeader: React.FC<SurveyHeaderProps> = ({
   sectionTitle,
   roleTitle,
 }) => {
-  const progressPercent = totalSteps > 0 ? Math.min(100, Math.round(((currentStep) / totalSteps) * 100)) : 0;
+  const progressPercent = totalSteps > 0 ? Math.min(100, Math.round(((currentStep + 1) / totalSteps) * 100)) : 0;
 
   return (
     <header className="w-full bg-white/90 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800/80 sticky top-0 z-40 transition-colors">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Brand & Context */}
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-md shadow-orange-500/20 ring-1 ring-black/5 dark:ring-white/20">
-              <Sparkles className="w-4 h-4 text-white" />
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <div className="flex items-center gap-2 sm:gap-2.5">
+              <img
+                src="/images/nhrd-logo.png"
+                alt="NHRD"
+                className="h-6 sm:h-7 w-auto max-w-[95px] sm:max-w-[130px] object-contain"
+              />
+              <span className="text-zinc-300 dark:text-zinc-600 text-xs font-light">×</span>
+              <img
+                src="/images/xmonks-logo.png"
+                alt="xMonks"
+                className="h-6 sm:h-7 w-auto max-w-[85px] sm:max-w-[120px] object-contain"
+              />
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-sm tracking-tight text-zinc-900 dark:text-white">
-                  NHRD × xMonks
-                </span>
+              <div className="flex items-center gap-1.5">
                 <span className="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
                   Research 2026
                 </span>
