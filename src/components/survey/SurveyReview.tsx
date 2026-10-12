@@ -113,11 +113,11 @@ export const SurveyReview: React.FC<SurveyReviewProps> = ({
         })}
       </div>
 
-      {/* Anonymous Guarantee & Action Buttons */}
+      {/* Confidentiality Guarantee & Action Buttons */}
       <div className="p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 flex items-center gap-3">
         <ShieldAlert className="w-4 h-4 text-amber-500 dark:text-amber-400 shrink-0" />
         <span>
-          Submission is completely anonymous. Your responses will be aggregated as part of the NHRD × xMonks 2026 National Coaching Ripple Effect benchmark.
+          Your responses are strictly confidential and will be aggregated as part of the NHRD × xMonks 2026 National Coaching Ripple Effect study. Guaranteed zero commercial sales outreach or marketing solicitations.
         </span>
       </div>
 

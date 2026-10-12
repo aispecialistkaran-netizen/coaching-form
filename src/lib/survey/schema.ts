@@ -51,7 +51,7 @@ export const STANDARD_LIKERT_1_5_ASSESS: LikertOption[] = [
 
 export const QUESTIONS: QuestionDefinition[] = [
   // ==========================================
-  // PARTICIPANT INFO (NAME & EMAIL FIRST)
+  // 1. PARTICIPANT PROFILE (Q00_NAME & Q00_EMAIL)
   // ==========================================
   {
     id: "Q00_NAME",
@@ -79,7 +79,7 @@ export const QUESTIONS: QuestionDefinition[] = [
   },
 
   // ==========================================
-  // CORE DEMOGRAPHICS (Q01 - Q06)
+  // 2. ORGANIZATION PROFILE (Q01 - Q04)
   // ==========================================
   {
     id: "Q01",
@@ -163,6 +163,10 @@ export const QUESTIONS: QuestionDefinition[] = [
       { label: "Not sure", value: "Not sure" },
     ],
   },
+
+  // ==========================================
+  // 3. DESIGNATION & EXPOSURE (Q05 - Q06)
+  // ==========================================
   {
     id: "Q05",
     code: "resp_role",
@@ -170,7 +174,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     section: "demographics",
     sectionTitle: "3. Designation & Perspective",
     title: "Which role best describes you?",
-    subtitle: "This tailors the subsequent questions specifically to your strategic vantage point.",
+    subtitle: "This tailors subsequent questions specifically to your strategic vantage point.",
     type: "single_select",
     route: "all",
     options: ROLE_OPTIONS,
@@ -194,9 +198,9 @@ export const QUESTIONS: QuestionDefinition[] = [
     ],
   },
 
-  // ==========================================
-  // CORE STRATEGY, STAGE & BARRIERS (Q10 - Q13)
-  // ==========================================
+  // =========================================================================
+  // USER ROUTE — SECTION 4: ORGANIZATIONAL COACHING CONTEXT (Q10 - Q13, Q_SPONSOR)
+  // =========================================================================
   {
     id: "Q10",
     code: "coach_stage",
@@ -205,7 +209,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     sectionTitle: "4. Organizational Coaching Context",
     title: "Which statement best describes your organization’s current coaching stage?",
     type: "single_select",
-    route: "all",
+    route: "user_only",
     roleMatrix: {
       chro: "required",
       clo: "required",
@@ -233,7 +237,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     subtitle: "Please select up to five.",
     type: "multi_select",
     maxSelections: 5,
-    route: "all",
+    route: "user_only",
     roleMatrix: {
       chro: "required",
       clo: "optional",
@@ -265,7 +269,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     sectionTitle: "4. Organizational Coaching Context",
     title: "To what extent is coaching integrated into leadership, talent, or people processes in your organization?",
     type: "likert_5",
-    route: "all",
+    route: "user_only",
     roleMatrix: {
       chro: "required",
       clo: "required",
@@ -290,7 +294,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     sectionTitle: "4. Organizational Coaching Context",
     title: "To what extent does your organization measure coaching using defined indicators, review mechanisms, or outcome data?",
     type: "likert_5",
-    route: "all",
+    route: "user_only",
     roleMatrix: {
       chro: "required",
       clo: "required",
@@ -307,10 +311,37 @@ export const QUESTIONS: QuestionDefinition[] = [
       { value: 99, label: "Not sure" },
     ],
   },
+  {
+    id: "Q_SPONSOR",
+    code: "business_sponsor",
+    tag: "Business Sponsor",
+    section: "core_strategy",
+    sectionTitle: "4. Organizational Coaching Context",
+    title: "Who, if anyone, actively participates as a business sponsor in reviewing coaching impact and progress alongside HR / L&D?",
+    subtitle: "Tripartite governance alignment between sponsor, coachee, and talent leadership.",
+    type: "single_select",
+    route: "user_only",
+    roleMatrix: {
+      chro: "required",
+      clo: "required",
+      ld: "required",
+      cxo: "required",
+      other: "required",
+    },
+    options: [
+      { label: "C-Suite / Managing Director / CEO directly", value: "C-Suite / Managing Director / CEO directly" },
+      { label: "Business Unit Head / Operating Division Leader", value: "Business Unit Head / Operating Division Leader" },
+      { label: "Direct People Manager / Reporting Leader of coachee", value: "Direct People Manager / Reporting Leader of coachee" },
+      { label: "Cross-functional Governance Council / Talent Committee", value: "Cross-functional Governance Council / Talent Committee" },
+      { label: "No business sponsor; reviewed exclusively within HR / L&D", value: "No business sponsor; reviewed exclusively within HR / L&D" },
+      { label: "Impact is not formally reviewed with business sponsors", value: "Impact is not formally reviewed with business sponsors" },
+      { label: "Other", value: "Other", hasTextInput: true },
+    ],
+  },
 
-  // ==========================================
-  // USER ROUTE: MODALITIES & COVERAGE (Q07U - Q09U)
-  // ==========================================
+  // =========================================================================
+  // USER ROUTE — SECTION 5: COACHING MODALITIES & REACH (Q07U - Q09U)
+  // =========================================================================
   {
     id: "Q07U",
     code: "coach_modalities",
@@ -395,15 +426,78 @@ export const QUESTIONS: QuestionDefinition[] = [
     ],
   },
 
-  // ==========================================
-  // USER ROUTE: MULTIDIMENSIONAL IMPACT (Q14U - Q21U)
-  // ==========================================
+  // =========================================================================
+  // USER ROUTE — SECTION 6: QUALITATIVE REFLECTIONS FIRST (Q22 - Q24)
+  // Executive storytelling placed before quantitative Likert metrics
+  // =========================================================================
+  {
+    id: "Q22",
+    code: "open_key_outcome",
+    tag: "Open: Key outcome",
+    section: "open_text",
+    sectionTitle: "6. Qualitative Insights & Reflections",
+    title: "In your view, what is the single most significant outcome that coaching has created or could create in your organization?",
+    type: "open_text",
+    route: "user_only",
+    roleMatrix: {
+      chro: "required",
+      clo: "required",
+      ld: "required",
+      cxo: "required",
+      other: "required",
+    },
+    wordLimit: { min: 30, max: 150, suggestion: "Suggested 50–120 words" },
+    placeholder: "Share your perspective on the most transformative outcome...",
+  },
+  {
+    id: "Q23",
+    code: "open_ripple_example",
+    tag: "Open: Ripple example",
+    section: "open_text",
+    sectionTitle: "6. Qualitative Insights & Reflections",
+    title: "Please describe one example where coaching impact travelled beyond the individual leader or where it stopped before travelling further.",
+    type: "open_text",
+    route: "user_only",
+    roleMatrix: {
+      chro: "required",
+      clo: "required",
+      ld: "required",
+      cxo: "required",
+      other: "required",
+    },
+    wordLimit: { min: 30, max: 180, suggestion: "Suggested 60–150 words" },
+    placeholder: "Describe a specific example showing ripple effects or where it stopped...",
+  },
+  {
+    id: "Q24",
+    code: "open_conditions_risks",
+    tag: "Open: Conditions & risks",
+    section: "open_text",
+    sectionTitle: "6. Qualitative Insights & Reflections",
+    title: "What conditions, enablers, or risks most influence whether coaching impact becomes sustainable in your organization?",
+    type: "open_text",
+    route: "user_only",
+    roleMatrix: {
+      chro: "required",
+      clo: "required",
+      ld: "required",
+      cxo: "required",
+      other: "required",
+    },
+    wordLimit: { min: 30, max: 180, suggestion: "Suggested 60–150 words" },
+    placeholder: "Outline conditions, enablers, or systemic risks...",
+  },
+
+  // =========================================================================
+  // USER ROUTE — SECTION 7: THE COACHING RIPPLE EFFECT & IMPACT (Q14U - Q19U)
+  // Multi-tier evaluative Likert scales
+  // =========================================================================
   {
     id: "Q14U",
     code: "out_individual",
     tag: "Leadership impact",
     section: "user_impact",
-    sectionTitle: "6. The Coaching Ripple Effect & Impact",
+    sectionTitle: "7. The Coaching Ripple Effect & Impact",
     title: "Based on what you have observed, to what extent has coaching contributed to leadership-maturity outcomes such as self-awareness, emotional regulation, judgment, accountability, and clarity?",
     type: "likert_5",
     route: "user_only",
@@ -421,7 +515,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "out_team",
     tag: "Team impact",
     section: "user_impact",
-    sectionTitle: "6. The Coaching Ripple Effect & Impact",
+    sectionTitle: "7. The Coaching Ripple Effect & Impact",
     title: "To what extent has coaching contributed to team outcomes such as trust, psychological safety, collaboration, inclusion, learning, or resilience?",
     type: "likert_5",
     route: "user_only",
@@ -439,7 +533,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "out_org",
     tag: "Organization impact",
     section: "user_impact",
-    sectionTitle: "6. The Coaching Ripple Effect & Impact",
+    sectionTitle: "7. The Coaching Ripple Effect & Impact",
     title: "To what extent has coaching contributed to organizational outcomes such as succession readiness, leadership pipeline strength, engagement, retention, performance culture, or organizational health?",
     type: "likert_5",
     route: "user_only",
@@ -457,7 +551,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "out_business",
     tag: "Business impact",
     section: "user_impact",
-    sectionTitle: "6. The Coaching Ripple Effect & Impact",
+    sectionTitle: "7. The Coaching Ripple Effect & Impact",
     title: "To what extent has coaching contributed to business outcomes such as strategic execution, agility, innovation, decision quality, or productivity?",
     type: "likert_5",
     route: "user_only",
@@ -475,7 +569,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "out_stakeholder",
     tag: "Stakeholder impact",
     section: "user_impact",
-    sectionTitle: "6. The Coaching Ripple Effect & Impact",
+    sectionTitle: "7. The Coaching Ripple Effect & Impact",
     title: "To what extent has coaching contributed to stakeholder outcomes such as customer experience, supplier/partner relationships, cross-boundary collaboration, negotiation quality, or stakeholder trust?",
     type: "likert_5",
     route: "user_only",
@@ -493,7 +587,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "out_ecosystem",
     tag: "Ecosystem impact",
     section: "user_impact",
-    sectionTitle: "6. The Coaching Ripple Effect & Impact",
+    sectionTitle: "7. The Coaching Ripple Effect & Impact",
     title: "To what extent has coaching contributed to wider ecosystem or community outcomes such as responsible leadership, mentoring, volunteering, social responsibility, industry capability, or community participation?",
     type: "likert_5",
     route: "user_only",
@@ -506,12 +600,16 @@ export const QUESTIONS: QuestionDefinition[] = [
     },
     likertOptions: STANDARD_LIKERT_1_5_ASSESS,
   },
+
+  // =========================================================================
+  // USER ROUTE — SECTION 8: VALUE & ROI OF COACHING (Q20U - Q21U)
+  // =========================================================================
   {
     id: "Q20U",
     code: "roi_value",
     tag: "Value / Investment",
     section: "user_impact",
-    sectionTitle: "7. Value & ROI of Coaching",
+    sectionTitle: "8. Value & ROI of Coaching",
     title: "Overall, how would you describe the value created by coaching relative to the time, effort, and money invested?",
     type: "likert_5",
     route: "user_only",
@@ -536,7 +634,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "roi_metrics",
     tag: "Metrics",
     section: "user_impact",
-    sectionTitle: "7. Value & ROI of Coaching",
+    sectionTitle: "8. Value & ROI of Coaching",
     title: "Which indicators does your organization use, or most trust, when judging coaching value? Please select up to five.",
     type: "multi_select",
     maxSelections: 5,
@@ -564,15 +662,87 @@ export const QUESTIONS: QuestionDefinition[] = [
     ],
   },
 
-  // ==========================================
-  // NON-USER ROUTE (Q07N - Q17N)
-  // ==========================================
+  // =========================================================================
+  // USER ROUTE — SECTION 9: RESEARCH PANEL & CASE STUDY PERMISSIONS (C1 - C3)
+  // Academic research framing
+  // =========================================================================
+  {
+    id: "C1",
+    code: "contact_interview",
+    tag: "Follow-up interview",
+    section: "follow_up",
+    sectionTitle: "9. Research Panel & Case Study (Optional)",
+    title: "May the NHRD Research Team contact you for a 45–60 minute follow-up executive research interview?",
+    subtitle: "Conducted under the NHRD Research Council to explore organizational context and qualitative ripple mechanisms. No commercial solicitation.",
+    type: "single_select",
+    route: "user_only",
+    roleMatrix: {
+      chro: "optional",
+      clo: "optional",
+      ld: "optional",
+      cxo: "optional",
+      other: "optional",
+    },
+    options: [
+      { label: "Yes, I would be pleased to participate in the research interview", value: "Yes" },
+      { label: "No, survey only", value: "No" },
+    ],
+  },
+  {
+    id: "C2",
+    code: "contact_case_study",
+    tag: "Case study shortlist",
+    section: "follow_up",
+    sectionTitle: "9. Research Panel & Case Study (Optional)",
+    title: "May the Research Team contact you if your organization's coaching practice is shortlisted for the NHRD White Paper Case Compendium?",
+    subtitle: "Recognition of pioneering leadership development and coaching culture in India.",
+    type: "single_select",
+    route: "user_only",
+    roleMatrix: {
+      chro: "optional",
+      clo: "optional",
+      ld: "optional",
+      cxo: "optional",
+      other: "optional",
+    },
+    options: [
+      { label: "Yes", value: "Yes" },
+      { label: "No", value: "No" },
+    ],
+  },
+  {
+    id: "C3",
+    code: "case_study_approval",
+    tag: "Attribution approval",
+    section: "follow_up",
+    sectionTitle: "9. Research Panel & Case Study (Optional)",
+    title: "If case-study inclusion is considered later, would you require separate organizational approval before any attribution?",
+    type: "single_select",
+    route: "user_only",
+    roleMatrix: {
+      chro: "optional",
+      clo: "optional",
+      ld: "optional",
+      cxo: "optional",
+      other: "optional",
+    },
+    options: [
+      { label: "Yes, formal internal approval required", value: "Yes" },
+      { label: "No attribution needed (keep anonymous)", value: "No" },
+      { label: "Not sure", value: "Not sure" },
+    ],
+  },
+
+  // =========================================================================
+  // NON-USER ROUTE — SECTION 4: ALTERNATIVE INTERVENTIONS & HORIZON (Q07N - Q09N)
+  // Bypasses core strategy to prevent branching drift
+  // =========================================================================
   {
     id: "Q07N",
     code: "alt_interventions",
     tag: "Alternative interventions",
     section: "non_user_route",
-    sectionTitle: "5. Alternative Interventions & Potential",
+    sectionTitle: "4. Alternative Interventions & Potential",
     title: "Which approaches does your organization currently use instead of, or in place of, formal coaching? Please select all that apply.",
     type: "multi_select",
     route: "non_user_only",
@@ -593,7 +763,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "potential_coverage",
     tag: "Potential coverage",
     section: "non_user_route",
-    sectionTitle: "5. Alternative Interventions & Potential",
+    sectionTitle: "4. Alternative Interventions & Potential",
     title: "If coaching were to be used in your organization, which groups would be the most likely starting point? Please select up to three.",
     type: "multi_select",
     maxSelections: 3,
@@ -616,7 +786,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "adoption_horizon",
     tag: "Adoption horizon",
     section: "non_user_route",
-    sectionTitle: "5. Alternative Interventions & Potential",
+    sectionTitle: "4. Alternative Interventions & Potential",
     title: "Which statement best describes your organization’s likely coaching horizon?",
     type: "single_select",
     route: "non_user_only",
@@ -627,12 +797,16 @@ export const QUESTIONS: QuestionDefinition[] = [
       { label: "Unsure", value: "Unsure" },
     ],
   },
+
+  // =========================================================================
+  // NON-USER ROUTE — SECTION 5: EVALUATION & CONDITIONS FOR ADOPTION (Q14N - Q17N)
+  // =========================================================================
   {
     id: "Q14N",
     code: "evidence_needed",
     tag: "Evidence needed",
     section: "non_user_route",
-    sectionTitle: "6. Evaluation & Conditions for Adoption",
+    sectionTitle: "5. Evaluation & Conditions for Adoption",
     title: "What evidence would matter most if your organization were evaluating coaching? Please select up to three.",
     type: "multi_select",
     maxSelections: 3,
@@ -655,7 +829,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "adoption_conditions",
     tag: "Adoption conditions",
     section: "non_user_route",
-    sectionTitle: "6. Evaluation & Conditions for Adoption",
+    sectionTitle: "5. Evaluation & Conditions for Adoption",
     title: "What conditions would most increase the likelihood of coaching adoption in your organization? Please select up to three.",
     type: "multi_select",
     maxSelections: 3,
@@ -678,7 +852,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "adoption_likelihood",
     tag: "Adoption likelihood",
     section: "non_user_route",
-    sectionTitle: "6. Evaluation & Conditions for Adoption",
+    sectionTitle: "5. Evaluation & Conditions for Adoption",
     title: "How likely is your organization to consider a more formal coaching approach over the next 24 months?",
     type: "likert_5",
     route: "non_user_only",
@@ -695,7 +869,7 @@ export const QUESTIONS: QuestionDefinition[] = [
     code: "perceived_value",
     tag: "Perceived value",
     section: "non_user_route",
-    sectionTitle: "6. Evaluation & Conditions for Adoption",
+    sectionTitle: "5. Evaluation & Conditions for Adoption",
     title: "If your organization were to adopt coaching, where do you believe it would be most likely to add value first?",
     type: "single_select",
     route: "non_user_only",
@@ -710,59 +884,45 @@ export const QUESTIONS: QuestionDefinition[] = [
     ],
   },
 
-  // ==========================================
-  // COMMON OPEN-TEXT QUESTIONS (Q22 - Q24)
-  // ==========================================
+  // =========================================================================
+  // NON-USER ROUTE — SECTION 6: STRATEGIC OUTLOOK & REFLECTIONS (Q22N)
+  // Replaces Q22-Q24 with a single, highly relevant, optional reflection
+  // =========================================================================
   {
-    id: "Q22",
-    code: "open_key_outcome",
-    tag: "Open: Key outcome",
+    id: "Q22N",
+    code: "open_non_user_outlook",
+    tag: "Strategic Outlook",
     section: "open_text",
-    sectionTitle: "8. Qualitative Insights & Reflections",
-    title: "In your view, what is the single most significant outcome that coaching has created or could create in your organization?",
+    sectionTitle: "6. Strategic Outlook & Reflections (Optional)",
+    title: "In your view, what is the single biggest question, reservation, or potential opportunity your organization sees regarding executive coaching?",
+    subtitle: "Share any reflections on what would make coaching viable, valuable, or justified in your organization.",
     type: "open_text",
-    route: "all",
-    wordLimit: { min: 30, max: 150, suggestion: "Suggested 50–120 words" },
-    placeholder: "Share your perspective on the most transformative outcome...",
-  },
-  {
-    id: "Q23",
-    code: "open_ripple_example",
-    tag: "Open: Ripple example",
-    section: "open_text",
-    sectionTitle: "8. Qualitative Insights & Reflections",
-    title: "Please describe one example where coaching impact travelled beyond the individual leader or where it stopped before travelling further.",
-    type: "open_text",
-    route: "all",
-    wordLimit: { min: 30, max: 180, suggestion: "Suggested 60–150 words" },
-    placeholder: "Describe a specific example showing ripple effects or where it stopped...",
-  },
-  {
-    id: "Q24",
-    code: "open_conditions_risks",
-    tag: "Open: Conditions & risks",
-    section: "open_text",
-    sectionTitle: "8. Qualitative Insights & Reflections",
-    title: "What conditions, enablers, or risks most influence whether coaching impact becomes sustainable in your organization?",
-    type: "open_text",
-    route: "all",
-    wordLimit: { min: 30, max: 180, suggestion: "Suggested 60–150 words" },
-    placeholder: "Outline conditions, enablers, or systemic risks...",
+    route: "non_user_only",
+    roleMatrix: {
+      chro: "optional",
+      clo: "optional",
+      ld: "optional",
+      cxo: "optional",
+      other: "optional",
+    },
+    wordLimit: { min: 10, max: 150, suggestion: "Suggested 20–80 words (optional)" },
+    placeholder: "Share your leadership perspective, questions, or reservations...",
   },
 
-  // ==========================================
-  // OPTIONAL FOLLOW-UP & CASE STUDY PERMISSIONS (C1 - C3)
-  // ==========================================
+  // =========================================================================
+  // NON-USER ROUTE — SECTION 7: EXECUTIVE ROUNDTABLE INVITATION (C1N)
+  // Peer roundtable invite replaces 45-min interview to eliminate lead-gen feel
+  // =========================================================================
   {
-    id: "C1",
-    code: "contact_interview",
-    tag: "Follow-up interview",
+    id: "C1N",
+    code: "non_user_roundtable",
+    tag: "Executive Roundtable",
     section: "follow_up",
-    sectionTitle: "9. Follow-up & Case Study (Optional)",
-    title: "May the Research Team contact you for a 45–60 minute follow-up executive interview?",
-    subtitle: "Interviews delve deeper into organizational context, ripple mechanisms, and qualitative insights.",
+    sectionTitle: "7. Executive Roundtable Invitation (Optional)",
+    title: "Would you like an invitation to an exclusive, closed-door NHRD Roundtable on 'Building the Business Case & Measuring ROI for Leadership Development'?",
+    subtitle: "A curated peer discussion for senior people and business leaders. Strictly non-commercial knowledge exchange.",
     type: "single_select",
-    route: "all",
+    route: "non_user_only",
     roleMatrix: {
       chro: "optional",
       clo: "optional",
@@ -771,51 +931,8 @@ export const QUESTIONS: QuestionDefinition[] = [
       other: "optional",
     },
     options: [
-      { label: "Yes, I would be pleased to participate", value: "Yes" },
-      { label: "No, survey only", value: "No" },
-    ],
-  },
-  {
-    id: "C2",
-    code: "contact_case_study",
-    tag: "Case study shortlist",
-    section: "follow_up",
-    sectionTitle: "9. Follow-up & Case Study (Optional)",
-    title: "May the Research Team contact you if your organization is shortlisted for a confidential case study?",
-    type: "single_select",
-    route: "all",
-    roleMatrix: {
-      chro: "optional",
-      clo: "optional",
-      ld: "optional",
-      cxo: "optional",
-      other: "optional",
-    },
-    options: [
-      { label: "Yes", value: "Yes" },
-      { label: "No", value: "No" },
-    ],
-  },
-  {
-    id: "C3",
-    code: "case_study_approval",
-    tag: "Attribution approval",
-    section: "follow_up",
-    sectionTitle: "9. Follow-up & Case Study (Optional)",
-    title: "If case-study inclusion is considered later, would you require separate organizational approval before any attribution?",
-    type: "single_select",
-    route: "all",
-    roleMatrix: {
-      chro: "optional",
-      clo: "optional",
-      ld: "optional",
-      cxo: "optional",
-      other: "optional",
-    },
-    options: [
-      { label: "Yes, formal internal approval required", value: "Yes" },
-      { label: "No attribution needed (keep anonymous)", value: "No" },
-      { label: "Not sure", value: "Not sure" },
+      { label: "Yes, please invite me to the peer roundtable", value: "Yes" },
+      { label: "No, published benchmark report only", value: "No" },
     ],
   },
 ];
@@ -847,11 +964,16 @@ export function getEligibleQuestions(answers: SurveyAnswers): QuestionDefinition
   const roleKey = getSelectedRoleKey(answers);
 
   return QUESTIONS.filter((q) => {
-    if (q.route === "user_only" && exposure !== "user") {
-      return false;
-    }
-    if (q.route === "non_user_only" && exposure !== "non_user") {
-      return false;
+    // If exposure has been selected, filter strictly
+    if (exposure === "user") {
+      if (q.route === "non_user_only") return false;
+    } else if (exposure === "non_user") {
+      if (q.route === "user_only") return false;
+    } else {
+      // Exposure not yet selected (Q00 through Q05):
+      // Keep user_only questions so the progress bar reflects the typical survey journey,
+      // and filter out non_user_only questions.
+      if (q.route === "non_user_only") return false;
     }
 
     if (q.roleMatrix) {

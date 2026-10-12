@@ -20,27 +20,37 @@ The questionnaire dynamically tailors its questions based on **two key decision 
 
 ---
 
+### Key Methodological Enhancements
+
+1. **Branching Drift Eradication**: Non-users bypass Category 4 (`Q10`–`Q13` coaching maturity) and go directly to Category 4N & 5N (`Q07N`–`Q17N`). They are never asked how effective or integrated coaching is in their organization.
+2. **Qualitative First for Users**: For active coaching users, qualitative reflections (`Q22`–`Q24`) now appear immediately following modalities (`Q07U`–`Q09U`) and *before* the Likert scales (`Q14U`–`Q19U`), anchoring ratings in authentic executive stories.
+3. **Business Sponsorship & Governance (`Q_SPONSOR`)**: A dedicated tripartite governance item evaluating whether and who from business leadership reviews coaching impact alongside HR/L&D.
+4. **Non-User Strategic Engagement**: Replaced intrusive 45-minute follow-ups with an optional single open reflection (`Q22N`) and an exclusive NHRD Executive Peer Roundtable invitation (`C1N`).
+5. **Multi-Role Holder Organization Design**: Multiple leaders (CHRO, CLO, CXO) from the same enterprise are encouraged to respond to enable intra-organizational divergence benchmarking.
+
+---
+
 ## 2. All 10 Scenarios: Summary Comparison Table
 
 | Scenario ID | Designation / Role | Coaching Type | Total Questions | Required | Optional | Skipped | Core Routing Rationale |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
-| `chro_user` | **CHRO / CPO / HR Head** | **Coaching User** | **29** | 23 | 6 | 7 | Evaluates all 6 ripple tiers; Modalities (`Q07U–Q09U`) are made optional. |
-| `chro_non_user` | **CHRO / CPO / HR Head** | **Non-User** | **25** | 22 | 3 | 11 | Complete org context + alternative interventions & adoption conditions. |
-| `clo_user` | **CLO / Talent Head** | **Coaching User** | **26** | 22 | 4 | 10 | Modalities required; skips Business, Stakeholder, Ecosystem (`Q17U–Q19U`). |
-| `clo_non_user` | **CLO / Talent Head** | **Non-User** | **25** | 21 | 4 | 11 | Non-user route; Barriers (`Q11`) is optional. |
-| `ld_user` | **Head L&D / OD** | **Coaching User** | **25** | 22 | 3 | 11 | Talent/modalities focus; skips Q17U–Q19U and skips Value/ROI (`Q20U`). |
-| `ld_non_user` | **Head L&D / OD** | **Non-User** | **25** | 22 | 3 | 11 | Standard non-user evaluation pathway. |
-| `cxo_user` | **CXO Sponsor** | **Coaching User** | **21** | 18 | 3 | 15 | **Lean Executive Path**: skips org context (`Q10–Q13`), modalities (`Q07U–Q09U`), and metrics list (`Q21U`). Evaluates ROI & high-level ripple. |
-| `cxo_non_user` | **CXO Sponsor** | **Non-User** | **21** | 18 | 3 | 15 | **Lean Executive Path**: skips org context (`Q10–Q13`), proceeds directly to strategic non-user evaluation. |
-| `other_user` | **Other Senior Leader** | **Coaching User** | **29** | 26 | 3 | 7 | Full coaching survey (modalities + all 6 ripple tiers required). |
-| `other_non_user` | **Other Senior Leader** | **Non-User** | **25** | 22 | 3 | 11 | Full non-user evaluation pathway. |
+| `chro_user` | **CHRO / CPO / HR Head** | **Coaching User** | **30** | 24 | 6 | 8 | All 6 ripple tiers; Modalities (`Q07U–Q09U`) optional; Sponsor & Qual first. |
+| `chro_non_user` | **CHRO / CPO / HR Head** | **Non-User** | **17** | 15 | 2 | 21 | Lean non-user path; alternative interventions + adoption hurdles + roundtable opt-in. |
+| `clo_user` | **CLO / Talent Head** | **Coaching User** | **27** | 23 | 4 | 11 | Modalities required; skips Business, Stakeholder, Ecosystem (`Q17U–Q19U`). |
+| `clo_non_user` | **CLO / Talent Head** | **Non-User** | **17** | 15 | 2 | 21 | Lean non-user evaluation pathway. |
+| `ld_user` | **Head L&D / OD** | **Coaching User** | **26** | 23 | 3 | 12 | Talent/modalities focus; skips Q17U–Q19U and skips Value/ROI (`Q20U`). |
+| `ld_non_user` | **Head L&D / OD** | **Non-User** | **17** | 15 | 2 | 21 | Lean non-user evaluation pathway. |
+| `cxo_user` | **CXO Sponsor** | **Coaching User** | **22** | 19 | 3 | 16 | **Lean Executive Path**: evaluates Sponsor (`Q_SPONSOR`), Qual reflections, ROI & ripple tiers. Skips modalities. |
+| `cxo_non_user` | **CXO Sponsor** | **Non-User** | **17** | 15 | 2 | 21 | Strategic non-user evaluation + roundtable invitation. |
+| `other_user` | **Other Senior Leader** | **Coaching User** | **30** | 27 | 3 | 8 | Full coaching survey (modalities, qualitative reflections, and all 6 ripple tiers required). |
+| `other_non_user` | **Other Senior Leader** | **Non-User** | **17** | 15 | 2 | 21 | Full non-user evaluation pathway. |
 
 ---
 
 ## 3. Detailed Category-Wise Walkthrough: CHRO
 
 ### Scenario 3.1: CHRO + Coaching User (`chro_user`)
-*Total: 29 Questions (23 Required, 6 Optional)*
+*Total: 30 Questions (24 Required, 6 Optional)*
 
 | Step | Category / Section | Question ID | Question Tag | Type | Status | Question Title |
 | :---: | :--- | :--- | :--- | :--- | :---: | :--- |
@@ -50,34 +60,35 @@ The questionnaire dynamically tailors its questions based on **two key decision 
 | **4** | 2. Organization Profile | `Q02` | Org size | Single Select | **Required** | Approximately how many employees does your organization have in India? |
 | **5** | 2. Organization Profile | `Q03` | Ownership | Single Select | **Required** | Which ownership structure best describes your organization? |
 | **6** | 2. Organization Profile | `Q04` | Region HQ | Single Select | **Required** | Where is your organization’s India head office or primary operating HQ located? |
-| **7** | 3. Designation & Perspective | `Q05` | Designation & Role | Single Select | **Required** | Which role best describes you? *(Selects: CHRO)* |
-| **8** | 3. Designation & Perspective | `Q06` | Coaching exposure | Single Select | **Required** | Which statement best describes your organization’s current use of coaching? *(Selects: User)* |
+| **7** | 3. Designation & Perspective | `Q05` | Designation & Role | Single Select | **Required** | Which role best describes you? |
+| **8** | 3. Designation & Perspective | `Q06` | Coaching exposure | Single Select | **Required** | Which statement best describes your organization’s current use of coaching? |
 | **9** | 4. Organizational Coaching Context | `Q10` | Coaching stage | Single Select | **Required** | Which statement best describes your organization’s current coaching stage? |
 | **10** | 4. Organizational Coaching Context | `Q11` | Barriers | Multi Select | **Required** | What are the main barriers to wider adoption or deeper embedding of coaching in your organization? |
 | **11** | 4. Organizational Coaching Context | `Q12` | Integration | Likert (1–5) | **Required** | To what extent is coaching integrated into leadership, talent, or people processes in your organization? |
 | **12** | 4. Organizational Coaching Context | `Q13` | Measurement | Likert (1–5) | **Required** | To what extent does your organization measure coaching using defined indicators, review mechanisms, or outcome data? |
-| **13** | 5. Coaching Modalities & Reach | `Q07U` | Modalities | Multi Select | *Optional* | Which coaching modalities are currently used in your organization? |
-| **14** | 5. Coaching Modalities & Reach | `Q08U` | Coverage | Multi Select | *Optional* | Which employee groups are currently covered by coaching? |
-| **15** | 5. Coaching Modalities & Reach | `Q09U` | Coaching duration | Single Select | *Optional* | For approximately how long has coaching been used in your organization? |
-| **16** | 6. Coaching Ripple Effect & Impact | `Q14U` | Leadership impact | Likert (1–5) | **Required** | Based on what you have observed, to what extent has coaching contributed to leadership-maturity outcomes such as self-awareness, emotional regulation, judgment, accountability, and clarity? |
-| **17** | 6. Coaching Ripple Effect & Impact | `Q15U` | Team impact | Likert (1–5) | **Required** | To what extent has coaching contributed to team outcomes such as trust, psychological safety, collaboration, inclusion, learning, or resilience? |
-| **18** | 6. Coaching Ripple Effect & Impact | `Q16U` | Organization impact | Likert (1–5) | **Required** | To what extent has coaching contributed to organizational outcomes such as succession readiness, leadership pipeline strength, engagement, retention, performance culture, or organizational health? |
-| **19** | 6. Coaching Ripple Effect & Impact | `Q17U` | Business impact | Likert (1–5) | **Required** | To what extent has coaching contributed to business outcomes such as strategic execution, agility, innovation, decision quality, or productivity? |
-| **20** | 6. Coaching Ripple Effect & Impact | `Q18U` | Stakeholder impact | Likert (1–5) | **Required** | To what extent has coaching contributed to stakeholder outcomes such as customer experience, supplier/partner relationships, cross-boundary collaboration, negotiation quality, or stakeholder trust? |
-| **21** | 6. Coaching Ripple Effect & Impact | `Q19U` | Ecosystem impact | Likert (1–5) | **Required** | To what extent has coaching contributed to wider ecosystem or community outcomes such as responsible leadership, mentoring, volunteering, social responsibility, industry capability, or community participation? |
-| **22** | 7. Value & ROI of Coaching | `Q20U` | Value / Investment | Likert (1–5) | **Required** | Overall, how would you describe the value created by coaching relative to the time, effort, and money invested? |
-| **23** | 7. Value & ROI of Coaching | `Q21U` | Metrics | Multi Select | **Required** | Which indicators does your organization use, or most trust, when judging coaching value? Please select up to five. |
-| **24** | 8. Qualitative Insights & Reflections | `Q22` | Open: Key outcome | Open Text | **Required** | In your view, what is the single most significant outcome that coaching has created or could create in your organization? |
-| **25** | 8. Qualitative Insights & Reflections | `Q23` | Open: Ripple example | Open Text | **Required** | Please describe one example where coaching impact travelled beyond the individual leader or where it stopped before travelling further. |
-| **26** | 8. Qualitative Insights & Reflections | `Q24` | Open: Conditions & risks | Open Text | **Required** | What conditions, enablers, or risks most influence whether coaching impact becomes sustainable in your organization? |
-| **27** | 9. Follow-up & Case Study | `C1` | Follow-up interview | Single Select | *Optional* | May the Research Team contact you for a 45–60 minute follow-up executive interview? |
-| **28** | 9. Follow-up & Case Study | `C2` | Case study shortlist | Single Select | *Optional* | May the Research Team contact you if your organization is shortlisted for a confidential case study? |
-| **29** | 9. Follow-up & Case Study | `C3` | Attribution approval | Single Select | *Optional* | If case-study inclusion is considered later, would you require separate organizational approval before any attribution? |
+| **13** | 4. Organizational Coaching Context | `Q_SPONSOR` | Business Sponsor | Single Select | **Required** | Who, if anyone, actively participates as a business sponsor in reviewing coaching impact and progress alongside HR / L&D? |
+| **14** | 5. Coaching Modalities & Reach | `Q07U` | Modalities | Multi Select | *Optional* | Which coaching modalities are currently used in your organization? |
+| **15** | 5. Coaching Modalities & Reach | `Q08U` | Coverage | Multi Select | *Optional* | Which employee groups are currently covered by coaching? |
+| **16** | 5. Coaching Modalities & Reach | `Q09U` | Coaching duration | Single Select | *Optional* | For approximately how long has coaching been used in your organization? |
+| **17** | 6. Qualitative Insights & Reflections | `Q22` | Open: Key outcome | Open Text | **Required** | In your view, what is the single most significant outcome that coaching has created or could create in your organization? |
+| **18** | 6. Qualitative Insights & Reflections | `Q23` | Open: Ripple example | Open Text | **Required** | Please describe one example where coaching impact travelled beyond the individual leader or where it stopped before travelling further. |
+| **19** | 6. Qualitative Insights & Reflections | `Q24` | Open: Conditions & risks | Open Text | **Required** | What conditions, enablers, or risks most influence whether coaching impact becomes sustainable in your organization? |
+| **20** | 7. The Coaching Ripple Effect & Impact | `Q14U` | Leadership impact | Likert (1–5) | **Required** | Based on what you have observed, to what extent has coaching contributed to leadership-maturity outcomes such as self-awareness, emotional regulation, judgment, accountability, and clarity? |
+| **21** | 7. The Coaching Ripple Effect & Impact | `Q15U` | Team impact | Likert (1–5) | **Required** | To what extent has coaching contributed to team outcomes such as trust, psychological safety, collaboration, inclusion, learning, or resilience? |
+| **22** | 7. The Coaching Ripple Effect & Impact | `Q16U` | Organization impact | Likert (1–5) | **Required** | To what extent has coaching contributed to organizational outcomes such as succession readiness, leadership pipeline strength, engagement, retention, performance culture, or organizational health? |
+| **23** | 7. The Coaching Ripple Effect & Impact | `Q17U` | Business impact | Likert (1–5) | **Required** | To what extent has coaching contributed to business outcomes such as strategic execution, agility, innovation, decision quality, or productivity? |
+| **24** | 7. The Coaching Ripple Effect & Impact | `Q18U` | Stakeholder impact | Likert (1–5) | **Required** | To what extent has coaching contributed to stakeholder outcomes such as customer experience, supplier/partner relationships, cross-boundary collaboration, negotiation quality, or stakeholder trust? |
+| **25** | 7. The Coaching Ripple Effect & Impact | `Q19U` | Ecosystem impact | Likert (1–5) | **Required** | To what extent has coaching contributed to wider ecosystem or community outcomes such as responsible leadership, mentoring, volunteering, social responsibility, industry capability, or community participation? |
+| **26** | 8. Value & ROI of Coaching | `Q20U` | Value / Investment | Likert (1–5) | **Required** | Overall, how would you describe the value created by coaching relative to the time, effort, and money invested? |
+| **27** | 8. Value & ROI of Coaching | `Q21U` | Metrics | Multi Select | **Required** | Which indicators does your organization use, or most trust, when judging coaching value? Please select up to five. |
+| **28** | 9. Research Panel & Case Study (Optional) | `C1` | Follow-up interview | Single Select | *Optional* | May the NHRD Research Team contact you for a 45–60 minute follow-up executive research interview? |
+| **29** | 9. Research Panel & Case Study (Optional) | `C2` | Case study shortlist | Single Select | *Optional* | May the Research Team contact you if your organization's coaching practice is shortlisted for the NHRD White Paper Case Compendium? |
+| **30** | 9. Research Panel & Case Study (Optional) | `C3` | Attribution approval | Single Select | *Optional* | If case-study inclusion is considered later, would you require separate organizational approval before any attribution? |
 
 ---
 
 ### Scenario 3.2: CHRO + Non-User (`chro_non_user`)
-*Total: 25 Questions (22 Required, 3 Optional)*
+*Total: 17 Questions (15 Required, 2 Optional)*
 
 | Step | Category / Section | Question ID | Question Tag | Type | Status | Question Title |
 | :---: | :--- | :--- | :--- | :--- | :---: | :--- |
@@ -87,29 +98,21 @@ The questionnaire dynamically tailors its questions based on **two key decision 
 | **4** | 2. Organization Profile | `Q02` | Org size | Single Select | **Required** | Approximately how many employees does your organization have in India? |
 | **5** | 2. Organization Profile | `Q03` | Ownership | Single Select | **Required** | Which ownership structure best describes your organization? |
 | **6** | 2. Organization Profile | `Q04` | Region HQ | Single Select | **Required** | Where is your organization’s India head office or primary operating HQ located? |
-| **7** | 3. Designation & Perspective | `Q05` | Designation & Role | Single Select | **Required** | Which role best describes you? *(Selects: CHRO)* |
-| **8** | 3. Designation & Perspective | `Q06` | Coaching exposure | Single Select | **Required** | Which statement best describes your organization’s current use of coaching? *(Selects: Non-User / Prospective)* |
-| **9** | 4. Organizational Coaching Context | `Q10` | Coaching stage | Single Select | **Required** | Which statement best describes your organization’s current coaching stage? |
-| **10** | 4. Organizational Coaching Context | `Q11` | Barriers | Multi Select | **Required** | What are the main barriers to wider adoption or deeper embedding of coaching in your organization? |
-| **11** | 4. Organizational Coaching Context | `Q12` | Integration | Likert (1–5) | **Required** | To what extent is coaching integrated into leadership, talent, or people processes in your organization? |
-| **12** | 4. Organizational Coaching Context | `Q13` | Measurement | Likert (1–5) | **Required** | To what extent does your organization measure coaching using defined indicators, review mechanisms, or outcome data? |
-| **13** | 5. Alternative Interventions & Potential | `Q07N` | Alternative interventions | Multi Select | **Required** | Which approaches does your organization currently use instead of, or in place of, formal coaching? |
-| **14** | 5. Alternative Interventions & Potential | `Q08N` | Potential coverage | Multi Select | **Required** | If coaching were to be used in your organization, which groups would be the most likely starting point? |
-| **15** | 5. Alternative Interventions & Potential | `Q09N` | Adoption horizon | Single Select | **Required** | Which statement best describes your organization’s likely coaching horizon? |
-| **16** | 6. Evaluation & Conditions for Adoption | `Q14N` | Evidence needed | Multi Select | **Required** | What evidence would matter most if your organization were evaluating coaching? |
-| **17** | 6. Evaluation & Conditions for Adoption | `Q15N` | Adoption conditions | Multi Select | **Required** | What conditions would most increase the likelihood of coaching adoption in your organization? |
-| **18** | 6. Evaluation & Conditions for Adoption | `Q16N` | Adoption likelihood | Likert (1–5) | **Required** | How likely is your organization to consider a more formal coaching approach over the next 24 months? |
-| **19** | 6. Evaluation & Conditions for Adoption | `Q17N` | Perceived value | Single Select | **Required** | If your organization were to adopt coaching, where do you believe it would be most likely to add value first? |
-| **20** | 8. Qualitative Insights & Reflections | `Q22` | Open: Key outcome | Open Text | **Required** | In your view, what is the single most significant outcome that coaching has created or could create in your organization? |
-| **21** | 8. Qualitative Insights & Reflections | `Q23` | Open: Ripple example | Open Text | **Required** | Please describe one example where coaching impact travelled beyond the individual leader or where it stopped before travelling further. |
-| **22** | 8. Qualitative Insights & Reflections | `Q24` | Open: Conditions & risks | Open Text | **Required** | What conditions, enablers, or risks most influence whether coaching impact becomes sustainable in your organization? |
-| **23** | 9. Follow-up & Case Study | `C1` | Follow-up interview | Single Select | *Optional* | May the Research Team contact you for a 45–60 minute follow-up executive interview? |
-| **24** | 9. Follow-up & Case Study | `C2` | Case study shortlist | Single Select | *Optional* | May the Research Team contact you if your organization is shortlisted for a confidential case study? |
-| **25** | 9. Follow-up & Case Study | `C3` | Attribution approval | Single Select | *Optional* | If case-study inclusion is considered later, would you require separate organizational approval before any attribution? |
+| **7** | 3. Designation & Perspective | `Q05` | Designation & Role | Single Select | **Required** | Which role best describes you? |
+| **8** | 3. Designation & Perspective | `Q06` | Coaching exposure | Single Select | **Required** | Which statement best describes your organization’s current use of coaching? |
+| **9** | 4. Alternative Interventions & Potential | `Q07N` | Alternative interventions | Multi Select | **Required** | Which approaches does your organization currently use instead of, or in place of, formal coaching? Please select all that apply. |
+| **10** | 4. Alternative Interventions & Potential | `Q08N` | Potential coverage | Multi Select | **Required** | If coaching were to be used in your organization, which groups would be the most likely starting point? Please select up to three. |
+| **11** | 4. Alternative Interventions & Potential | `Q09N` | Adoption horizon | Single Select | **Required** | Which statement best describes your organization’s likely coaching horizon? |
+| **12** | 5. Evaluation & Conditions for Adoption | `Q14N` | Evidence needed | Multi Select | **Required** | What evidence would matter most if your organization were evaluating coaching? Please select up to three. |
+| **13** | 5. Evaluation & Conditions for Adoption | `Q15N` | Adoption conditions | Multi Select | **Required** | What conditions would most increase the likelihood of coaching adoption in your organization? Please select up to three. |
+| **14** | 5. Evaluation & Conditions for Adoption | `Q16N` | Adoption likelihood | Likert (1–5) | **Required** | How likely is your organization to consider a more formal coaching approach over the next 24 months? |
+| **15** | 5. Evaluation & Conditions for Adoption | `Q17N` | Perceived value | Single Select | **Required** | If your organization were to adopt coaching, where do you believe it would be most likely to add value first? |
+| **16** | 6. Strategic Outlook & Reflections (Optional) | `Q22N` | Strategic Outlook | Open Text | *Optional* | In your view, what is the single biggest question, reservation, or potential opportunity your organization sees regarding executive coaching? |
+| **17** | 7. Executive Roundtable Invitation (Optional) | `C1N` | Executive Roundtable | Single Select | *Optional* | Would you like an invitation to an exclusive, closed-door NHRD Roundtable on 'Building the Business Case & Measuring ROI for Leadership Development'? |
 
 ---
 
-## 4. Master Matrix: All 36 Questions Across All 10 Scenarios
+## 4. Master Matrix: All 38 Questions Across All 10 Scenarios
 
 Legend:
 - **Req**: Question is active and mandatory to proceed.
@@ -120,54 +123,55 @@ Legend:
 | :---: | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **1** | Participant Profile | `Q00_NAME` | Full Name | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
 | **1** | Participant Profile | `Q00_EMAIL` | Work Email | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **2** | Org Profile | `Q01` | Industry | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **2** | Org Profile | `Q02` | Org size | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **2** | Org Profile | `Q03` | Ownership | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **2** | Org Profile | `Q04` | Region HQ | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **3** | Designation | `Q05` | Role | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **3** | Designation | `Q06` | Exposure | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **4** | Org Context | `Q10` | Stage | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | *Skip* | *Skip* | **Req** | **Req** |
-| **4** | Org Context | `Q11` | Barriers | all | **Req** | **Req** | *Opt* | *Opt* | **Req** | **Req** | *Skip* | *Skip* | **Req** | **Req** |
-| **4** | Org Context | `Q12` | Integration | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | *Skip* | *Skip* | **Req** | **Req** |
-| **4** | Org Context | `Q13` | Measurement | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | *Skip* | *Skip* | **Req** | **Req** |
-| **5U** | Modalities & Reach | `Q07U` | Modalities | user_only | *Opt* | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
-| **5U** | Modalities & Reach | `Q08U` | Coverage | user_only | *Opt* | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
-| **5U** | Modalities & Reach | `Q09U` | Years Used | user_only | *Opt* | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
-| **6U** | Ripple Impact | `Q14U` | Leadership | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
-| **6U** | Ripple Impact | `Q15U` | Team | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
-| **6U** | Ripple Impact | `Q16U` | Org Health | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
-| **6U** | Ripple Impact | `Q17U` | Business | user_only | **Req** | *Skip* | *Skip* | *Skip* | *Skip* | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
-| **6U** | Ripple Impact | `Q18U` | Stakeholder | user_only | **Req** | *Skip* | *Skip* | *Skip* | *Skip* | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
-| **6U** | Ripple Impact | `Q19U` | Ecosystem | user_only | **Req** | *Skip* | *Skip* | *Skip* | *Skip* | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
-| **7U** | Value & ROI | `Q20U` | Value/Cost | user_only | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
-| **7U** | Value & ROI | `Q21U` | Metrics | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
-| **5N** | Alt Interventions | `Q07N` | Alternatives | non_user | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
-| **5N** | Alt Interventions | `Q08N` | Coverage | non_user | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
-| **5N** | Alt Interventions | `Q09N` | Horizon | non_user | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
-| **6N** | Evaluation Conditions | `Q14N` | Evidence | non_user | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
-| **6N** | Evaluation Conditions | `Q15N` | Conditions | non_user | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
-| **6N** | Evaluation Conditions | `Q16N` | Likelihood | non_user | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
-| **6N** | Evaluation Conditions | `Q17N` | Value First | non_user | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
-| **8** | Qualitative | `Q22` | Key Outcome | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **8** | Qualitative | `Q23` | Ripple Story | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **8** | Qualitative | `Q24` | Risks/Enablers | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
-| **9** | Follow-up | `C1` | Interview | all | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* |
-| **9** | Follow-up | `C2` | Case Study | all | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* |
-| **9** | Follow-up | `C3` | Approval | all | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* | *Opt* |
-| | **Totals** | | | | **29** | **25** | **26** | **25** | **25** | **25** | **21** | **21** | **29** | **25** |
+| **2** | Organization Profile | `Q01` | Industry | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
+| **2** | Organization Profile | `Q02` | Org size | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
+| **2** | Organization Profile | `Q03` | Ownership | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
+| **2** | Organization Profile | `Q04` | Region HQ | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
+| **3** | Designation & Perspective | `Q05` | Designation & Role | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
+| **3** | Designation & Perspective | `Q06` | Coaching exposure | all | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** | **Req** |
+| **4** | Organizational Coaching Context | `Q10` | Coaching stage | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
+| **4** | Organizational Coaching Context | `Q11` | Barriers | user_only | **Req** | *Skip* | *Opt* | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
+| **4** | Organizational Coaching Context | `Q12` | Integration | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
+| **4** | Organizational Coaching Context | `Q13` | Measurement | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
+| **4** | Organizational Coaching Context | `Q_SPONSOR` | Business Sponsor | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **5** | Coaching Modalities & Reach | `Q07U` | Modalities | user_only | *Opt* | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
+| **5** | Coaching Modalities & Reach | `Q08U` | Coverage | user_only | *Opt* | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
+| **5** | Coaching Modalities & Reach | `Q09U` | Coaching duration | user_only | *Opt* | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
+| **6** | Qualitative Insights & Reflections | `Q22` | Open: Key outcome | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **6** | Qualitative Insights & Reflections | `Q23` | Open: Ripple example | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **6** | Qualitative Insights & Reflections | `Q24` | Open: Conditions & risks | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **7** | The Coaching Ripple Effect & Impact | `Q14U` | Leadership impact | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **7** | The Coaching Ripple Effect & Impact | `Q15U` | Team impact | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **7** | The Coaching Ripple Effect & Impact | `Q16U` | Organization impact | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **7** | The Coaching Ripple Effect & Impact | `Q17U` | Business impact | user_only | **Req** | *Skip* | *Skip* | *Skip* | *Skip* | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **7** | The Coaching Ripple Effect & Impact | `Q18U` | Stakeholder impact | user_only | **Req** | *Skip* | *Skip* | *Skip* | *Skip* | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **7** | The Coaching Ripple Effect & Impact | `Q19U` | Ecosystem impact | user_only | **Req** | *Skip* | *Skip* | *Skip* | *Skip* | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **8** | Value & ROI of Coaching | `Q20U` | Value / Investment | user_only | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* | **Req** | *Skip* |
+| **8** | Value & ROI of Coaching | `Q21U` | Metrics | user_only | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | *Skip* | *Skip* | **Req** | *Skip* |
+| **9** | Research Panel & Case Study (Optional) | `C1` | Follow-up interview | user_only | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* |
+| **9** | Research Panel & Case Study (Optional) | `C2` | Case study shortlist | user_only | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* |
+| **9** | Research Panel & Case Study (Optional) | `C3` | Attribution approval | user_only | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* |
+| **4** | Alternative Interventions & Potential | `Q07N` | Alternative interventions | non_user_only | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
+| **4** | Alternative Interventions & Potential | `Q08N` | Potential coverage | non_user_only | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
+| **4** | Alternative Interventions & Potential | `Q09N` | Adoption horizon | non_user_only | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
+| **5** | Evaluation & Conditions for Adoption | `Q14N` | Evidence needed | non_user_only | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
+| **5** | Evaluation & Conditions for Adoption | `Q15N` | Adoption conditions | non_user_only | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
+| **5** | Evaluation & Conditions for Adoption | `Q16N` | Adoption likelihood | non_user_only | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
+| **5** | Evaluation & Conditions for Adoption | `Q17N` | Perceived value | non_user_only | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** | *Skip* | **Req** |
+| **6** | Strategic Outlook & Reflections (Optional) | `Q22N` | Strategic Outlook | non_user_only | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* |
+| **7** | Executive Roundtable Invitation (Optional) | `C1N` | Executive Roundtable | non_user_only | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* | *Skip* | *Opt* |
+| | **Totals** | | | | **30** | **17** | **27** | **17** | **26** | **17** | **22** | **17** | **30** | **17** |
 
 ---
 
 ## 5. CSV Files Reference
 
-The following CSV files have been created in the project repository and are ready for import into Excel, Google Sheets, or data pipelines:
+The following CSV files in the project repository reflect this complete structure:
 
 1. **Category & Question Master Matrix**:
    - File: [`questionnaire_scenarios_matrix.csv`](file:///Users/xmonks/xmonks%20websites%20&%20projects/formtype/questionnaire_scenarios_matrix.csv)
    - Public URL: [`public/questionnaire_scenarios_matrix.csv`](file:///Users/xmonks/xmonks%20websites%20&%20projects/formtype/public/questionnaire_scenarios_matrix.csv)
-   - Layout: Questions mapped in rows grouped by category, with scenario columns showing status (`Required`, `Optional`, `Skipped`).
 
 2. **Step-by-Step Flow For Every Scenario**:
    - File: [`questionnaire_all_scenarios_flow.csv`](file:///Users/xmonks/xmonks%20websites%20&%20projects/formtype/questionnaire_all_scenarios_flow.csv)
    - Public URL: [`public/questionnaire_all_scenarios_flow.csv`](file:///Users/xmonks/xmonks%20websites%20&%20projects/formtype/public/questionnaire_all_scenarios_flow.csv)
-   - Layout: Chronological step order (Step 1 to N) for each scenario with Category, Question ID, Tag, Type, Requirement status, and Title.
